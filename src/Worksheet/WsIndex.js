@@ -47,35 +47,43 @@ function WorkSheetIndex() {
 
     function pushToWorksheet() {
 
-        const workingDays = Functions.daysInMonth(currentMonth, currentYear, 0);
-        if (workedDays > workingDays) {
-            alert('You have submitted all working days for the Month' + ' ' + monthName);
+        if (workSheet.length === 0) {
+            alert("Nothing to add. Please add data...")
 
         } else {
-            var date = Functions.workSheetDate('date', currentYear, currentMonth, workedDays);
-            var currentday = Functions.workSheetDate('day', currentYear, currentMonth, workedDays);
-            setworkedDays(workedDays + 1);
-
-
-            if (currentday.toLowerCase() === 'saturday' || currentday.toLowerCase() === 'sunday') {
-                workSheet.push([date, "", "", "", ""]);
+            const workingDays = Functions.daysInMonth(currentMonth, currentYear, 0);
+            if (workedDays > workingDays) {
+                alert('You have submitted all working days for the Month' + ' ' + monthName);
 
             } else {
-                workSheet.push([date, projectName, fileName, description, status]);
+                var date = Functions.workSheetDate('date', currentYear, currentMonth, workedDays);
+                var currentday = Functions.workSheetDate('day', currentYear, currentMonth, workedDays);
+                setworkedDays(workedDays + 1);
+
+
+                if (currentday.toLowerCase() === 'saturday' || currentday.toLowerCase() === 'sunday') {
+                    workSheet.push([date, "", "", "", ""]);
+
+                } else {
+                    workSheet.push([date, projectName, fileName, description, status]);
+
+                }
+
+                setProjectName("");
+                setFileName("");
+                setDescription("");
+                setStatus("");
+                document.getElementById('ProjectInput').value = "";
+                document.getElementById('FileInput').value = "";
+                document.getElementById('DescriptionInput').value = "";
+                document.getElementById('StatusInput').value = "";
+
 
             }
 
-            setProjectName("");
-            setFileName("");
-            setDescription("");
-            setStatus("");
-            document.getElementById('ProjectInput').value = "";
-            document.getElementById('FileInput').value = "";
-            document.getElementById('DescriptionInput').value = "";
-            document.getElementById('StatusInput').value = "";
-
-
         }
+
+
 
     }
 
