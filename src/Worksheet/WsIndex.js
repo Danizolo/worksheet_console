@@ -92,7 +92,7 @@ function WorkSheetIndex() {
         <div className=''>
             <Header />
 
-            <div className='absolute flex flex-col gap-4 m-16 rounded-lg text-xs shadow shadow-xl'>
+            <div className='absolute flex flex-col justify-center gap-4 m-16 rounded-lg text-xs shadow shadow-xl'>
                 <div>
                     <p className='text-slate-900 font-bold'>
                         Download Worksheet
@@ -125,42 +125,57 @@ function WorkSheetIndex() {
                         </div>
                     </div>
 
-                    <div className='w-3/4'>
-                        <input
-                            type='text'
-                            id='ProjectInput'
-                            onChange={(e) => setProjectName(e.target.value)}
-                            className='border border-slate-400 bg-slate-100 m-2 px-8 py-2 text-slate-900 outline-none rounded-full'
-                            placeholder='Project Name' />
-                        <input
-                            type='text'
-                            id='FileInput'
-                            onChange={(e) => setFileName(e.target.value)}
-                            className='border border-slate-400 bg-slate-100 m-2 px-8 py-2 text-slate-900 outline-none rounded-full '
-                            placeholder='File Name' />
-                        <input
-                            type='text'
-                            id='DescriptionInput'
-                            onChange={(e) => setDescription(e.target.value)}
-                            className='border border-slate-400 bg-slate-100 m-2 px-8 py-2 text-slate-900 outline-none rounded-full'
-                            placeholder='Description' />
-                        <input
-                            type='text'
-                            id='StatusInput'
-                            onChange={(e) => setStatus(e.target.value)}
-                            className='border border-slate-400 bg-slate-100 m-2 px-8 py-2 text-slate-900 outline-none rounded-full'
-                            placeholder='Status' />
+                    <div className='flex flex-col gap-2 w-3/4'>
+                        <div>
+                            <select
+                                type='text'
+                                id='ProjectInput'
+                                onChange={(e) => setProjectName(e.target.value)}
+                                className='border border-slate-400 bg-slate-100 m-2 px-8 py-2 text-slate-900 outline-none rounded-full'
+                            >
+                                <option value={null}>Select Project</option>
+                                <option value='Hrms'>Hrms</option>
+                                <option value='I2I'>I2I</option>
+                            </select>
+                            <input
+                                type='text'
+                                id='FileInput'
+                                onChange={(e) => setFileName(e.target.value)}
+                                className='border border-slate-400 bg-slate-100 m-2 px-8 py-2 text-slate-900 outline-none rounded-full '
+                                placeholder='File Name' />
+                            <input
+                                type='text'
+                                id='DescriptionInput'
+                                onChange={(e) => setDescription(e.target.value)}
+                                className='border border-slate-400 bg-slate-100 m-2 px-8 py-2 text-slate-900 outline-none rounded-full'
+                                placeholder='Description' />
+                            <select
+                                type='text'
+                                id='StatusInput'
+                                onChange={(e) => setStatus(e.target.value)}
+                                className='border border-slate-400 bg-slate-100 m-2 px-8 py-2 text-slate-900 outline-none rounded-full'
+                            >
+                                <option value={null}>Select Status</option>
+                                <option value='Completed'>Completed</option>
+                                <option value='Pending'>Pending</option>
+                            </select>
+                        </div>
 
-                        <button
-                            className='border border-slate-400 bg-white hover:text-white hover:bg-orange-500 rounded-full m-2 px-4 py-2 text-slate-900 outline-none'
-                            onClick={pushToWorksheet}>
-                            Add
-                        </button>
-                        <button
-                            className='border border-slate-400 bg-white hover:text-white hover:bg-slate-900 rounded-full m-2 px-4 py-2 text-slate-900 outline-none'
-                            onClick={reload}>
-                            Clear All
-                        </button>
+                        <div>
+                            <button
+                                className='border border-slate-400 bg-white hover:text-white hover:bg-orange-500 rounded-full m-2 px-4 py-2 text-slate-900 outline-none'
+                                onClick={pushToWorksheet}>
+                                Add
+                            </button>
+                            <button
+                                className='border border-slate-400 bg-white hover:text-white hover:bg-slate-900 rounded-full m-2 px-4 py-2 text-slate-900 outline-none'
+                                onClick={reload}>
+                                Clear All
+                            </button>
+                        </div>
+
+
+
                     </div>
 
                     <div className='flex justify-center items-center m-2'>
